@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <form action = "#">
+            <input id = "rollButton" type = "button" value = "Roll Dice">
+        </form>
+        <ol>
+            <li><img id = "die1" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die2" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die3" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die4" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die5" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die6" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die7" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die8" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die9" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die10" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die11" src = "die1.png" alt = "blank image"></li>
+            <li><img id = "die12" src = "die1.png" alt = "blank image"></li>
+    <script>
+        var die1Image;
+        var die2Image;
+        var die3Image;
+        var die4Image;
+        var die5Image;
+        var die6Image;
+        var die7Image;
+        var die8Image;
+        var die9Image;
+        var die10Image;
+        var die11Image;
+        var die12Image;
+        var statistics1 =0;
+        var statistics2 =0;
+        var statistics3 =0;
+        var statistics4 =0;
+        var statistics5 =0;
+        var statistics6 =0;
+        var percentage1 = statistics1/12;
+        var percentage2 = statistics2/12;
+        var percentage3 = statistics3/12;
+        var percentage4 = statistics4/12;
+        var percentage5 = statistics5/12;
+        var percentage6 = statistics6/12;
+
+
+        function start()
+        {
+            var button = document.getElementById("rollButton");
+            button.addEventListener("click", rollDice, false);
+            die1Image = document.getElementById("die1");
+            die2Image = document.getElementById("die2");
+            die3Image = document.getElementById("die3");
+            die4Image = document.getElementById("die4");
+            die5Image = document.getElementById("die5");
+            die6Image = document.getElementById("die6");
+            die7Image = document.getElementById("die7");
+            die8Image = document.getElementById("die8");
+            die9Image = document.getElementById("die9");
+            die10Image = document.getElementById("die10");
+            die11Image = document.getElementById("die11");
+            die12Image = document.getElementById("die12");
+        }
+
+        function rollDice()
+        {
+            setImage(die1Image);
+            setImage(die2Image);
+            setImage(die3Image);
+            setImage(die4Image);
+            setImage(die5Image);
+            setImage(die6Image);
+            setImage(die7Image);
+            setImage(die8Image);
+            setImage(die9Image);
+            setImage(die10Image);
+            setImage(die11Image);
+            setImage(die12Image);
+        }
+
+        function setImage(dieImg)
+        {
+            var dieValue = Math.floor( 1 + Math.random()*6);
+            if (diaValue =1){
+                statistics1 ++;
+            }
+            if (diaValue =2){
+                statistics2 ++;
+            }
+            if (diaValue =3){
+                statistics3 ++;
+            }
+            if (diaValue =4){
+                statistics4 ++;
+            }
+            if (diaValue =5){
+                statistics5 ++;
+            }
+            if (diaValue =6){
+                statistics6 ++;
+            }
+            dieImg.setAttribute("src", "die" + dieValue + ".png");
+            dieImg.setAttribute("alt", "die image with" + dieValue + " spot(s)");
+        }
+        window.addEventListener("load", start, false);
+    </script>
+
+    </ol>
+    <table border = "1" style = "width:100%">
+        <tr>
+            <th> Face </th>
+            <th> Percentage</th>
+        </tr>
+        <tr>
+            <td> 1 </td>
+            <td> percentage1 </td>
+        </tr>
+        <tr>
+            <td> 2 </td>
+            <td> percentage2 </td>
+        </tr>
+        <tr>
+            <td> 3 </td>
+            <td> percentage3 </td>
+        </tr>
+        <tr>
+            <td> 4 </td>
+            <td> percentage4 </td>
+        </tr>
+        <tr>
+            <td> 5 </td>
+            <td> percentage5 </td>
+        </tr>
+        <tr>
+            <td> 6 </td>
+            <td> percentage6 </td>
+        </tr>
+
+
+    </table>
+</body>
+</html>
