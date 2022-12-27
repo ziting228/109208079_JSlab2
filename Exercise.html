@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        td{border: 1px
+            solid #090 }
+        th{border: 1px
+            solid #090 }
+    </style>
     <body>
 
-        <form action = "#">
-            <input id = "rollButton" type = "button" value = "Roll Dice">
-        </form>
         <ol>
             <li><img id = "die1" src = "die1.png" alt = "blank image"></li>
             <li><img id = "die2" src = "die1.png" alt = "blank image"></li>
@@ -18,6 +21,12 @@
             <li><img id = "die10" src = "die1.png" alt = "blank image"></li>
             <li><img id = "die11" src = "die1.png" alt = "blank image"></li>
             <li><img id = "die12" src = "die1.png" alt = "blank image"></li>
+        </ol>
+
+        <form action = "#">
+            <input id = "rollButton" type = "button" value = "Roll Dice">
+        </form>
+        <div id="frequencyTableDiv"></div>
     <script>
         var die1Image;
         var die2Image;
@@ -37,12 +46,7 @@
         var statistics4 =0;
         var statistics5 =0;
         var statistics6 =0;
-        var percentage1 = statistics1/12;
-        var percentage2 = statistics2/12;
-        var percentage3 = statistics3/12;
-        var percentage4 = statistics4/12;
-        var percentage5 = statistics5/12;
-        var percentage6 = statistics6/12;
+        var totalDice =0;
 
 
         function start()
@@ -77,67 +81,58 @@
             setImage(die10Image);
             setImage(die11Image);
             setImage(die12Image);
-        }
+            updateFrequencyTable();
+        } 
 
         function setImage(dieImg)
         {
             var dieValue = Math.floor( 1 + Math.random()*6);
-            if (diaValue =1){
-                statistics1 ++;
+            if (dieValue ==1){
+                ++statistics1;
+                ++totalDice;
             }
-            if (diaValue =2){
-                statistics2 ++;
+            if (dieValue ==2){
+                ++statistics2;
+                ++totalDice;
             }
-            if (diaValue =3){
-                statistics3 ++;
+            if (dieValue ==3){
+                ++statistics3;
+                ++totalDice;
             }
-            if (diaValue =4){
-                statistics4 ++;
+            if (dieValue ==4){
+                ++statistics4;
+                ++totalDice;
             }
-            if (diaValue =5){
-                statistics5 ++;
+            if (dieValue ==5){
+                ++statistics5;
+                ++totalDice;
             }
-            if (diaValue =6){
-                statistics6 ++;
+            if (dieValue ==6){
+                ++statistics6;
+                ++totalDice;
             }
             dieImg.setAttribute("src", "die" + dieValue + ".png");
             dieImg.setAttribute("alt", "die image with" + dieValue + " spot(s)");
         }
+
+
+        function updateFrequencyTable(){
+
+            var tableDiv = document.getElementById("frequencyTableDiv");
+
+            tableDiv.innerHTML="<table>" 
+            +"<caption> Die Rolling Frequencies</caption>" // 表頭
+            +"<tr><th> Face </th><th> Frequency </th><th> Percent </th></tr>" // 列名
+            +"<tr><td>1</td> <td>"+ statistics1 +"</td> <td>"+ Math.floor((statistics1/totalDice)*100) + "%" +" </td></tr>"
+            +"<tr><td>2</td> <td>"+ statistics2 +"</td> <td>"+ Math.floor((statistics2/totalDice)*100) + "%" +" </td></tr>"
+            +"<tr><td>3</td> <td>"+ statistics3 +"</td> <td>"+ Math.floor((statistics3/totalDice)*100) + "%" +" </td></tr>"
+            +"<tr><td>4</td> <td>"+ statistics4 +"</td> <td>"+ Math.floor((statistics4/totalDice)*100) + "%" +" </td></tr>"
+            +"<tr><td>5</td> <td>"+ statistics5 +"</td> <td>"+ Math.floor((statistics5/totalDice)*100) + "%" +" </td></tr>"
+            +"<tr><td>6</td> <td>"+ statistics6 +"</td> <td>"+ Math.floor((statistics6/totalDice)*100) + "%" +" </td></tr>"  
+            "</table>";
+        }
         window.addEventListener("load", start, false);
+        
     </script>
-
-    </ol>
-    <table border = "1" style = "width:100%">
-        <tr>
-            <th> Face </th>
-            <th> Percentage</th>
-        </tr>
-        <tr>
-            <td> 1 </td>
-            <td> percentage1 </td>
-        </tr>
-        <tr>
-            <td> 2 </td>
-            <td> percentage2 </td>
-        </tr>
-        <tr>
-            <td> 3 </td>
-            <td> percentage3 </td>
-        </tr>
-        <tr>
-            <td> 4 </td>
-            <td> percentage4 </td>
-        </tr>
-        <tr>
-            <td> 5 </td>
-            <td> percentage5 </td>
-        </tr>
-        <tr>
-            <td> 6 </td>
-            <td> percentage6 </td>
-        </tr>
-
-
-    </table>
 </body>
 </html>
